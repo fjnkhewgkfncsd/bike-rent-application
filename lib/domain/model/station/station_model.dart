@@ -1,13 +1,10 @@
-import '../bike/bike_model.dart';
-
 class Station {
   final String id;
   final String name;
-  final List<Bike> bikes;
+  final int availableBikes;
+  final int totalSlots;
 
-  const Station({required this.id, required this.name, required this.bikes});
-
-  int get availableBikeCount => bikes.where((b) => b.isAvailable).length;
+  const Station({required this.id, required this.name, required this.availableBikes, required this.totalSlots});
 
   @override
   bool operator ==(Object other) =>
@@ -16,4 +13,12 @@ class Station {
   @override
   int get hashCode => id.hashCode;
 
+  Station copyWith({String? id, String ? name, int? availableBikes, int? totalSlots}) {
+    return Station(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      availableBikes: availableBikes ?? this.availableBikes,
+      totalSlots: totalSlots ?? this.totalSlots,
+    );
+  }
 }
