@@ -77,18 +77,18 @@ Map<String, dynamic> bikes = {
 Map<String, dynamic> passes = {
   "001": {
     "pass_type": "day",
-    "price": 10.0,
-    "description": "kim heng is gay as well",
+    "price": 1.0,
+    "description": "Valid for 24 hours from first use",
   },
   "002": {
     "pass_type": "monthly",
-    "price": 10.0,
-    "description": "monich is gay",
+    "price": 15.0,
+    "description": "Valid for 30 days with unlimited rides",
   },
   "003": {
-    "pass_type": "annumual",
-    "price": 10.0,
-    "description": "monich is gay",
+    "pass_type": "annual",
+    "price": 150.0,
+    "description": "Valid for 365 days with unlimited rides",
   }
 };
 
