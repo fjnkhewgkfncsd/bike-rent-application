@@ -5,7 +5,7 @@ import '../../mockup_data.dart';
 import '../../repositories/station/station_repository.dart';
 import '../../../domain/model/station/station_model.dart';
 
-class StationRepositoryMock implements StationRepository {
+class StationRepositoryMockup implements StationRepository {
   final StreamController<List<Station>> _controller =
       StreamController<List<Station>>.broadcast();
 
