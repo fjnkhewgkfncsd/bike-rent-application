@@ -1,4 +1,4 @@
-import 'package:bike_rental/domain/model/slot/slot.dart';
+import '../../domain/model/slot/slot.dart';
 
 class SlotDto {
   static const String idKey = 'id';

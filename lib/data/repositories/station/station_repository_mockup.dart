@@ -1,15 +1,17 @@
+// data/repositories/station/station_repository_mockup.dart
 import 'dart:async';
-import 'package:bike_rental/data/dtos/station_dto.dart';
-
+import '../../dtos/station_dto.dart';
 import '../../mockup_data.dart';
-import 'package:bike_rental/data/repositories/station/station_repository.dart';
-import 'package:bike_rental/domain/model/station/station_model.dart';
+import '../../repositories/station/station_repository.dart';
+import '../../../domain/model/station/station_model.dart';
 
-class StationRepositoryMockup implements StationRepository {
+class StationRepositoryMock implements StationRepository {
   final StreamController<List<Station>> _controller =
       StreamController<List<Station>>.broadcast();
 
-  List<Station> _stations = stations.entries.map((station) => StationDto.fromJson(station.key,station.value)).toList();
+  List<Station> _stations = stations.entries
+      .map((station) => StationDto.fromJson(station.key, station.value))
+      .toList();
 
   @override
   Stream<List<Station>> watchStations() async* {
@@ -21,6 +23,21 @@ class StationRepositoryMockup implements StationRepository {
     _stations = _stations.map((station) {
       if (station.id == stationId) {
         return station.copyWith(availableBikes: newCount);
+      }
+      return station;
+    }).toList();
+
+    _controller.add(List.unmodifiable(_stations));
+  }
+
+  void updateStationLocation(
+    String stationId,
+    double latitude,
+    double longitude,
+  ) {
+    _stations = _stations.map((station) {
+      if (station.id == stationId) {
+        return station.copyWith(latitude: latitude, longitude: longitude);
       }
       return station;
     }).toList();

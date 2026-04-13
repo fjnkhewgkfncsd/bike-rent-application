@@ -1,6 +1,6 @@
-import 'package:bike_rental/data/dtos/user_dto.dart';
-import 'package:bike_rental/data/repositories/user/user_repository.dart';
-import 'package:bike_rental/domain/model/user/user.dart';
+import '../../dtos/user_dto.dart';
+import '../../repositories/user/user_repository.dart';
+import '../../../domain/model/user/user.dart';
 import '../../mockup_data.dart';
 
 class UserRepositoryMockup extends UserRepository {
