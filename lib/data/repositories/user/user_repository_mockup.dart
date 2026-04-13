@@ -9,4 +9,18 @@ class UserRepositoryMockup extends UserRepository {
     final user = users.entries.firstWhere((entry) => entry.key == userId);
     return UserDto.fromJson(user.key, user.value);
   }
+
+  @override
+  Future<void> updateUserPass({
+    required String userId,
+    required String passStatus,
+    required String? passType,
+    required DateTime? passExpiryDate,
+  }) async {
+    final user = users[userId] as Map<String, dynamic>;
+
+    user['pass_status'] = passStatus;
+    user['pass_type'] = passType;
+    user['pass_expiry_date'] = passExpiryDate;
+  }
 }

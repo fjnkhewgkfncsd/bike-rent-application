@@ -18,4 +18,12 @@ class PassDto {
       description: json[descriptionKey],
     );
   }
+  static Map<String, dynamic> toJson(Pass pass) {
+    return {
+      idKey: pass.id,
+      passtypeKey: pass.passtype,
+      priceKey: pass.price,
+      descriptionKey: pass.description,
+    };
+  }
 }
