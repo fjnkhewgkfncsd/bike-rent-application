@@ -1,4 +1,4 @@
-import 'package:bike_rental/domain/model/pass/pass.dart';
+import '../../domain/model/pass/pass.dart';
 
 class PassDto {
   static const String idKey = 'id';

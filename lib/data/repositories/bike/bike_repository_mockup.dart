@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:bike_rental/data/dtos/bike_dto.dart';
+import '../../dtos/bike_dto.dart';
 
 import '../../mockup_data.dart';
 import './bike_repository.dart';
-import 'package:bike_rental/domain/model/bike/bike_model.dart';
+import '../../../domain/model/bike/bike_model.dart';
 
 class BikeRepositoryMockup extends BikeRepository {
   final StreamController<List<Bike>> _controller =

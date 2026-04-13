@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:bike_rental/data/dtos/slot_dto.dart';
-import 'package:bike_rental/data/mockup_data.dart';
-import 'package:bike_rental/domain/model/slot/slot.dart';
+import '../../dtos/slot_dto.dart';
+import '../../mockup_data.dart';
+import '../../../domain/model/slot/slot.dart';
 import './slot_repository.dart';
 
 class SlotRepositoryMockup extends SlotRepository {

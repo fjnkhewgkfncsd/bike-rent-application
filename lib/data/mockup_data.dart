@@ -1,37 +1,46 @@
 Map<String, dynamic> stations = {
   "001": {
-    "name": "monich is gay as fuck",
+    "name": "Station 1",
     "availableBike": 5,
     "totalSlots": 10,
+    "latitude": 11.5564,
+    "longitude": 104.9282,
   },
   "002": {
-    "name": "monich is gay as fuck",
-    "availableBike": 5,
-    "totalSlots": 10,
+    "name": "Station 2",
+    "availableBike": 3,
+    "totalSlots": 8,
+    "latitude": 11.5764,
+    "longitude": 104.9182,
   },
   "003": {
-    "name": "monich is gay as fuck",
-    "availableBike": 5,
-    "totalSlots": 10,
+    "name": "Station 3",
+    "availableBike": 7,
+    "totalSlots": 12,
+    "latitude": 11.5464,
+    "longitude": 104.9482,
   },
   "004": {
-    "name": "monich is gay as fuck",
-    "availableBike": 5,
-    "totalSlots": 10,
+    "name": "Station 4",
+    "availableBike": 2,
+    "totalSlots": 8,
+    "latitude": 11.5364,
+    "longitude": 104.9082,
   },
   "005": {
-    "name": "monich is gay as fuck",
-    "availableBike": 5,
+    "name": "Station 5",
+    "availableBike": 4,
     "totalSlots": 10,
+    "latitude": 11.5264,
+    "longitude": 104.9382,
   },
 };
-
 Map<String, dynamic> slots = {
   "1": {"isOccupied": true, "bikeId": "001"},
-  "2": {"isOccupied": true, "bikeId": "001"},
-  "3": {"isOccupied": true, "bikeId": "001"},
-  "4": {"isOccupied": true, "bikeId": "001"},
-  "5": {"isOccupied": true, "bikeId": "001"},
+  "2": {"isOccupied": true, "bikeId": "002"},
+  "3": {"isOccupied": true, "bikeId": "003"},
+  "4": {"isOccupied": true, "bikeId": "004"},
+  "5": {"isOccupied": true, "bikeId": "005"},
   "6": {"isOccupied": false},
   "7": {"isOccupied": false},
   "8": {"isOccupied": false},
@@ -40,38 +49,14 @@ Map<String, dynamic> slots = {
 };
 
 Map<String, dynamic> bikes = {
-  "001": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "002": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "003": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "004": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "005": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "006": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "007": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
-  "008": {
-    "bikeNumber": "Bike Number #001",
-    "status": "available",
-  },
+  "001": {"isAvailable": true},
+  "002": {"isAvailable": true},
+  "003": {"isAvailable": true},
+  "004": {"isAvailable": true},
+  "005": {"isAvailable": true},
+  "006": {"isAvailable": true},
+  "007": {"isAvailable": true},
+  "008": {"isAvailable": true},
 };
 
 Map<String, dynamic> passes = {
