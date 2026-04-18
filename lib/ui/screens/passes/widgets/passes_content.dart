@@ -1,6 +1,7 @@
 import 'package:bike_rental/domain/model/pass/pass.dart';
 import 'package:bike_rental/ui/screens/pass/pass_details_screen.dart';
 import 'package:bike_rental/ui/screens/passes/view_model/passes_view_model.dart';
+import 'package:bike_rental/ui/theme/theme.dart';
 import 'package:bike_rental/ui/widgets/generic_tile.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/async_value.dart';
@@ -67,15 +68,15 @@ class PassesContent extends StatelessWidget {
       case AsyncValueState.success:
         if(passesVM.userState.user!.isPassActive){
           content = Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            padding: const EdgeInsets.symmetric(vertical: AppSpacing.md, horizontal: AppSpacing.lg),
             child: Column(
               children : [
                 ...passesVM.passes.map((pass){
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.only(bottom: AppSpacing.md),
                     child: GenericListTile(
                       title: pass.passtype, 
-                      backgroundColor: pass.passtype == passesVM.userState.user!.passType ? Colors.blue : const Color.fromARGB(255, 170, 170, 170),
+                      backgroundColor: pass.passtype == passesVM.userState.user!.passType ? AppColors.info : AppColors.lightgrey,
                       subtitle: getSubTitle(pass),
                       trailing: pass.passtype == passesVM.userState.user!.passType ? 
                       Container(
@@ -84,7 +85,7 @@ class PassesContent extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8)
                         ),
-                        child: Text('Active', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),),
+                        child: Text('Active', style: TextStyle(color: AppColors.success, fontWeight: FontWeight.bold),),
                       ) : null,
                       leading: Container(
                         width: 40,
@@ -99,9 +100,9 @@ class PassesContent extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 22),
+                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl, vertical: AppSpacing.lg),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF3F3F3),
+                    color: AppColors.background,
                     borderRadius: BorderRadius.circular(28),
                   ),
                   child: Column(
@@ -112,7 +113,7 @@ class PassesContent extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF1F1F1F),
+                          color: AppColors.textPrimary,
                         ),
                       ),
                       SizedBox(height: 20),
@@ -123,7 +124,7 @@ class PassesContent extends StatelessWidget {
                             'Valid Until',
                             style: TextStyle(
                               fontSize: 16,
-                              color: Color(0xFF8A8A8A),
+                              color: AppColors.textMuted,
                             ),
                           ),
                           Text(
@@ -131,7 +132,7 @@ class PassesContent extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF1F1F1F),
+                              color: AppColors.textPrimary,
                             ),
                           ),
                         ],
@@ -144,14 +145,14 @@ class PassesContent extends StatelessWidget {
           );
         }else{
           content = Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            padding: const EdgeInsets.symmetric(vertical: AppSpacing.md, horizontal: AppSpacing.lg),
             child: ListView.separated(
               itemBuilder: (context, index) {
                 final pass = passesVM.passes[index];
                 return GenericListTile(
                   title: pass.passtype,
                   trailing: Text('${pass.price} €'),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: AppColors.info,
                   onTap: () => toPassDetails(context, pass),
                 );
               },

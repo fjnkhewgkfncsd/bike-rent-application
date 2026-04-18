@@ -1,4 +1,5 @@
 import 'package:bike_rental/domain/model/pass/pass.dart';
+import 'package:bike_rental/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class PassDetailsScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class PassDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(pass.passtype),
+        backgroundColor: AppColors.lighterdeepBlue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -19,9 +21,9 @@ class PassDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              padding: const EdgeInsets.symmetric(vertical: AppSpacing.md, horizontal: AppSpacing.lg),
               decoration: BoxDecoration(
-              color: Colors.blue,
+              color: AppColors.info,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -30,7 +32,7 @@ class PassDetailsScreen extends StatelessWidget {
                     pass.description,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: AppSpacing.md),
                   Text(
                     'Price: \$${pass.price.toStringAsFixed(2)}',
                     style: Theme.of(context).textTheme.titleLarge,
@@ -42,9 +44,9 @@ class PassDetailsScreen extends StatelessWidget {
               height: 16,
             ),
             Container(
-              padding : const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              padding : const EdgeInsets.symmetric(vertical: AppSpacing.md, horizontal: AppSpacing.lg),
               decoration: BoxDecoration(
-                color: const Color(0xFFF3F3F3),
+                color: AppColors.background,
                 borderRadius: BorderRadius.circular(28),
               ),
               child : Column(
@@ -68,10 +70,11 @@ class PassDetailsScreen extends StatelessWidget {
                 onClickSubscription();
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.airplane_ticket),
-              label: const Text('Subscribe'),
+              label: Text(
+                'Subscribe for \$${pass.price.toStringAsFixed(2)}',
+              ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF2D63C8),
+                backgroundColor: AppColors.lighterdeepBlue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

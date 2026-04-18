@@ -2,6 +2,7 @@ import 'package:bike_rental/data/repositories/pass/pass_repository.dart';
 import 'package:bike_rental/ui/screens/passes/view_model/passes_view_model.dart';
 import 'package:bike_rental/ui/screens/passes/widgets/passes_content.dart';
 import 'package:bike_rental/ui/state/user_state.dart';
+import 'package:bike_rental/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,12 +24,14 @@ class PassesScreen extends StatelessWidget {
 
           return Scaffold(
             appBar: AppBar(
+              backgroundColor: AppColors.lighterdeepBlue,
               title: Text(
                 user == null
                     ? 'Loading...'
                     : user.isPassActive
                         ? 'Manage Your Pass'
                         : 'Choose a Pass',
+              style: TextStyle(color: AppColors.background),
               ),
             ),
             body: PassesContent(passesVM: vm),
@@ -47,7 +50,7 @@ class PassesScreen extends StatelessWidget {
                           icon: const Icon(Icons.close),
                           label: const Text('Cancel Plan'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF2D63C8),
+                            backgroundColor: AppColors.lighterdeepBlue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),

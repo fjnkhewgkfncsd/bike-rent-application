@@ -36,7 +36,6 @@ class HomeContent extends StatelessWidget {
         if (stations.isEmpty) {
           return const Center(child: Text('No stations available'));
         }
-        // Use Map View instead of List View
         return HomeMapView();
     }
   }

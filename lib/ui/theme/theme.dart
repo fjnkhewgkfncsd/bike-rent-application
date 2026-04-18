@@ -6,20 +6,25 @@ class AppColors {
   static const Color primary = Color(0xFF00BCD4);
   static const Color primaryDark = Color(0xFF0097A7);
   static const Color accent = Color(0xFF4DD0E1);
+  static const Color primaryDarker = Color.fromARGB(255, 1, 59, 253);
   static const Color success = Color(0xFF4CAF50);
   static const Color successLight = Color(0xFF8BC34A);
   static const Color error = Color(0xFFE53935);
   static const Color warning = Color(0xFFFFA000);
-  static const Color info = Color(0xFF2196F3); 
+  static const Color info = Color(0xFF2196F3);
   static const Color surface = Color(0xFFF2F2F2);
   static const Color background = Colors.white;
   static const Color slotBadge = primary;
   static const Color textPrimary = Color(0xFF1A1A1A);
   static const Color textMuted = Color(0xFF888888);
+  static const Color navyBlue = Color(0xFF0D47A1);
+  static const Color deepBlue = Color.fromARGB(255, 3, 114, 199);
+  static const Color lighterdeepBlue = Color.fromARGB(255, 34, 72, 197);
+static const Color lightgrey = Color.fromARGB(255, 238, 238, 238);
+  
 }
 
-class AppSpacing{
-
+class AppSpacing {
   static const double xs = 4.0;
   static const double sm = 8.0;
   static const double md = 16.0;
