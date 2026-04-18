@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../data/repositories/station/station_repository.dart';
-import '../../domain/model/station/station_model.dart';
+import '../../domain/model/station/station.dart';
 import '../../data/repositories/station/station_repository_mockup.dart';
 
 class StationState extends ChangeNotifier {
@@ -12,7 +12,7 @@ class StationState extends ChangeNotifier {
   String? _error;
   StreamSubscription<List<Station>>? _subscription;
 
-  StationState({StationRepository? repository})
+  StationState({StationRepository? repository})z
     : _repository = repository ?? StationRepositoryMock(); 
 
   List<Station> get stations => _stations;

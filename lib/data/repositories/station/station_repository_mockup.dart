@@ -3,9 +3,9 @@ import 'dart:async';
 import '../../dtos/station_dto.dart';
 import '../../mockup_data.dart';
 import '../../repositories/station/station_repository.dart';
-import '../../../domain/model/station/station_model.dart';
+import '../../../domain/model/station/station.dart';
 
-class StationRepositoryMock implements StationRepository {
+class StationRepositoryMockup implements StationRepository {
   final StreamController<List<Station>> _controller =
       StreamController<List<Station>>.broadcast();
 
@@ -18,8 +18,8 @@ class StationRepositoryMock implements StationRepository {
     yield List.unmodifiable(_stations);
     yield* _controller.stream;
   }
-
-  void updateAvailableBikeCount(String stationId, int newCount) {
+  @override
+  Future<void> updateStationAvailableBikeCount(String stationId, int newCount) async {
     _stations = _stations.map((station) {
       if (station.id == stationId) {
         return station.copyWith(availableBikes: newCount);
@@ -28,6 +28,11 @@ class StationRepositoryMock implements StationRepository {
     }).toList();
 
     _controller.add(List.unmodifiable(_stations));
+  }
+
+  Stream<Station> watchAStation(String stationId) async*{
+    yield _stations.firstWhere((station) => station.id == stationId);
+    yield* _controller.stream.map((stations) => stations.firstWhere((station) => station.id == stationId)); 
   }
 
   void updateStationLocation(

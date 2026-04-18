@@ -1,32 +1,23 @@
-// lib/main_common.dart
-import 'package:bike_rental/ui/state/station_state.dart';
-import 'package:bike_rental/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+import './ui/screens/home/home_screen.dart';
+import './ui/theme/theme.dart';
 
-import 'ui/screens/home/home_screen.dart';
-
-
-class AppConfig {
-  final String appTitle;
-  final String flavor;
-
-  const AppConfig({required this.appTitle, required this.flavor});
+void mainCommon(List<SingleChildWidget> providers) {
+  runApp(MultiProvider(providers: providers, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  final AppConfig config;
-
-  const MyApp({super.key, required this.config});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => StationState())],
-      child: MaterialApp(
-        title: config.appTitle,
-        theme: AppTheme.light,
-        home: const HomeScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      home: Scaffold(
+        body: const HomeScreen()
       ),
     );
   }

@@ -1,6 +1,6 @@
 // ui/screens/station_detail/station_detail_screen.dart
 import 'package:flutter/material.dart';
-import '../../../domain/model/station/station_model.dart';
+import '../../../domain/model/station/station.dart';
 import '../../theme/theme.dart';
 
 class StationDetailScreen extends StatelessWidget {
@@ -141,7 +141,7 @@ class StationDetailScreen extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                          color: AppColors.primary.withOpacity(0.1),
+                          color: AppColors.primary,
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(

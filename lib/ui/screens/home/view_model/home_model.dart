@@ -1,37 +1,48 @@
 // ui/screens/home/view_model/home_model.dart
+import 'dart:async';
+
+import '../../../utils/async_value.dart';
 import 'package:flutter/material.dart';
-import '../../../state/station_state.dart';
-import '../../../../domain/model/station/station_model.dart';
+import '../../../../data/repositories/station/station_repository.dart';
+import '../../../../domain/model/station/station.dart';
 
-class HomeModel extends ChangeNotifier {
-  final StationState stationState;
+class HomeViewModel extends ChangeNotifier {
+  final StationRepository _stationRepository;
 
-  HomeModel({required this.stationState}) {
-    stationState.addListener(_onStationStateChanged);
-  }
+  AsyncValue<List<Station>> _state = AsyncValue.loading();
 
-  void _onStationStateChanged() {
+  StreamSubscription<List<Station>>? _subscription;
+
+  HomeViewModel({required StationRepository stationRepository}) : _stationRepository = stationRepository;
+
+  List<Station> get stations => _state.data ?? [];
+  AsyncValue<List<Station>> get state => _state;
+  void startWatchingStations() {
+    if (_subscription != null) return;
+
+    _state = AsyncValue.loading();
     notifyListeners();
+
+    _subscription = _stationRepository.watchStations().listen(
+      (stations) {
+        _state = AsyncValue.success(stations);
+        notifyListeners();
+      },
+      onError: (error) {
+        _state = AsyncValue.error(error);
+        notifyListeners();
+      },
+    );
   }
 
-  List<Station> get stations => stationState.stations;
-  bool get isLoading => stationState.isLoading;
-  String? get error => stationState.error;
-
-  void startWatching() {
-    stationState.startWatchingStations();
-  }
-
-  void onStationTap(String stationId) {
-    // Navigate to station detail
-    // You can access the full station data if needed
-    final station = stations.firstWhere((s) => s.id == stationId);
-    // Navigate with station data
+  void stopWatching() {
+    _subscription?.cancel();
+    _subscription = null;
   }
 
   @override
   void dispose() {
-    stationState.removeListener(_onStationStateChanged);
+    stopWatching();
     super.dispose();
   }
 }
