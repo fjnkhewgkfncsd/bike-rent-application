@@ -3,8 +3,15 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import './ui/screens/home/home_screen.dart';
 import './ui/theme/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void mainCommon(List<SingleChildWidget> providers) {
+void mainCommon(List<SingleChildWidget> providers) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MultiProvider(providers: providers, child: const MyApp()));
 }
 

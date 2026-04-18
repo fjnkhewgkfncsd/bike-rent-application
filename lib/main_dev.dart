@@ -1,10 +1,11 @@
+import 'package:bike_rental/data/repositories/slot/slot_firebase_repository.dart';
+import 'package:bike_rental/data/repositories/station/station_firebase_repository.dart';
 import 'package:bike_rental/ui/state/user_state.dart';
 import 'data/repositories/bike/bike_repository.dart';
 import 'data/repositories/bike/bike_repository_mockup.dart';
 import 'data/repositories/pass/pass_repository.dart';
 import 'data/repositories/pass/pass_repository_mockup.dart';
 import 'data/repositories/slot/slot_repository.dart';
-import 'data/repositories/slot/slot_repository_mockup.dart';
 import 'data/repositories/station/station_repository.dart';
 import 'data/repositories/user/user_repository.dart';
 import 'data/repositories/user/user_repository_mockup.dart';
@@ -12,9 +13,13 @@ import 'data/repositories/station/station_repository_mockup.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import './main_common.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 List<SingleChildWidget> get providers {
   return [
+    Provider<FirebaseDatabase>(
+      create: (_) => FirebaseDatabase.instance,
+    ),
     Provider<UserRepository>(
       create: (_) => UserRepositoryMockup(),
     ),
@@ -25,10 +30,10 @@ List<SingleChildWidget> get providers {
       create: (_) => BikeRepositoryMockup(),
     ),
     Provider<StationRepository>(
-      create: (_) => StationRepositoryMockup(),
+      create: (context) => StationFirebaseRepository(context.read<FirebaseDatabase>()),
     ),
     Provider<SlotRepository>(
-      create: (_) => SlotRepositoryMockup(),
+      create: (context) => SlotFirebaseRepository(context.read<FirebaseDatabase>()),
     ),
     ChangeNotifierProvider(
       create: (context) => UserState(
