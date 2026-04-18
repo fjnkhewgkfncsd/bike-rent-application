@@ -21,8 +21,6 @@ class StationContent extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: AppColors.lightdeepblue,
-            borderRadius: const BorderRadius.only(
-            ),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,14 +34,15 @@ class StationContent extends StatelessWidget {
                       stationViewModel.availableBikesNumber.toString(),
                       style: const TextStyle(
                         color: AppColors.background,
-                        fontSize: AppSpacing.lg,
+                        fontSize: AppFont.lg,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: AppSpacing.xs),
                     const Text(
                       'Available Bikes',
-                      style: TextStyle(color: AppColors.background, fontSize: 14),
+                      style: TextStyle(color: AppColors.background, fontSize: AppFont.big,
+                      ),
                     ),
                   ],
                 ),
@@ -61,14 +60,15 @@ class StationContent extends StatelessWidget {
                       stationViewModel.emptySlots.toString(),
                       style: const TextStyle(
                         color: AppColors.background,
-                        fontSize: AppSpacing.lg,
+                        fontSize: AppFont.lg,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: AppSpacing.xs),
                     const Text(
                       'Empty Slots',
-                      style: TextStyle(color: AppColors.background, fontSize: 14),
+                      style: TextStyle(color: AppColors.background, fontSize: AppFont.big,
+                      ),
                     ),
                   ],
                 ),

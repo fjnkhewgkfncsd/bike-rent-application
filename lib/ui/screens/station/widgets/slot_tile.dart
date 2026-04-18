@@ -13,12 +13,12 @@ class SlotListTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: AppSpacing.md),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        color: AppColors.background,
+        borderRadius: BorderRadius.circular(AppBorder.bi),
         boxShadow: [
           BoxShadow(
             color: AppColors.textPrimary.withOpacity(0.08), 
-            blurRadius: 8,
+            blurRadius: AppBorder.sm,
             offset: const Offset(0, 2),
           ),
         ],
@@ -27,7 +27,7 @@ class SlotListTile extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppBorder.bi),
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: AppSpacing.md,
@@ -41,7 +41,7 @@ class SlotListTile extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: AppColors.info.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(22),
+                    borderRadius: BorderRadius.circular(AppBorder.bi),
                   ),
                   child: Text(
                     '${slot?.id ?? ''}',
@@ -61,11 +61,11 @@ class SlotListTile extends StatelessWidget {
                         'Bike #${slot?.bikeId ?? ''}',
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                          fontSize: AppFont.md,
                           color: AppColors.textPrimary,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: AppSpacing.xs),
                     ],
                   ),
                 ),
@@ -75,12 +75,12 @@ class SlotListTile extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: AppColors.info,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppBorder.l),
                   ),
                   child: const Icon(
                     Icons.directions_bike,
                     color: AppColors.background,
-                    size: 20,
+                    size: AppFont.l,
                   ),
                 ),
               ],

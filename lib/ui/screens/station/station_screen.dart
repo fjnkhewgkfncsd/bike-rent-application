@@ -22,9 +22,9 @@ class StationScreen extends StatelessWidget{
           
         ),
         backgroundColor: AppColors.topnaviblue,
-        title: Text(station.name,   style: const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
+        title: Text(station.name, style: const TextStyle(
+            color: AppColors.background,
+            fontSize: AppFont.md,
           ),
         ),
       ),
