@@ -7,19 +7,21 @@ import 'package:flutter/material.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
     final String bikeName;
-  final String slotNumber;
+  final String slotId;
   final StationViewModel stationViewModel;
+  final String stationId;
 
   const PaymentBottomSheet({
     super.key,
     required this.stationViewModel,
     required this.bikeName,
-    required this.slotNumber,
+    required this.stationId,
+    required this.slotId,
   });
 
   void onBooking(BuildContext context) async {
     final navigator = Navigator.of(context);
-    final isSuccess = await stationViewModel.bookBike(slotNumber,bikeName);
+    final isSuccess = await stationViewModel.bookBike(stationId, slotId, bikeName, false);
     if(isSuccess) {
       navigator.pop();
       if(!navigator.mounted) return;
