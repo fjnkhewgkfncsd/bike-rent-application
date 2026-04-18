@@ -30,7 +30,7 @@ class PassService {
 
     await userRepository.updateUserPass(
       userId: userId,
-      passStatus: 'active',
+      passStatus: true,
       passType: pass.passtype,
       passExpiryDate: expiryDate,
     );
