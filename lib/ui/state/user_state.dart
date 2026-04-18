@@ -19,7 +19,6 @@ class UserState extends ChangeNotifier{
       notifyListeners();
     }catch(e){
       _state = AsyncValue.error('Failed to load user');
-      print('error here');
       notifyListeners();
     }
   }
