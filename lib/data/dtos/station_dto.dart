@@ -1,4 +1,4 @@
-import '../../domain/model/station/station_model.dart';
+import '../../domain/model/station/station.dart';
 
 class StationDto {
   static const String nameKey = 'name';
