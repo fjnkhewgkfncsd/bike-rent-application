@@ -15,7 +15,7 @@ class SlotRepositoryMockup extends SlotRepository {
     yield* _controller.stream;
   }
   @override
-  Future<void> updateSlotStatus(String slotId,String? bikeId, bool isOccupied) async {
+  Future<void> updateSlotStatus(String stationId, String slotId, String? bikeId, bool isOccupied) async {
     for (var slot in _slots) {
       if (slot.id == slotId) {
         final updatedSlot = slot.copyWith(isOccupied: isOccupied, bikeId: bikeId);

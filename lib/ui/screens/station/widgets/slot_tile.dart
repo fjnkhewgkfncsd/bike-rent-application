@@ -8,7 +8,7 @@ class SlotListTile extends StatelessWidget {
     required this.onTap,
   });
 
-  final Slot? slot;
+  final Slot slot;
   final void Function() onTap;
 
   @override
@@ -30,9 +30,9 @@ class SlotListTile extends StatelessWidget {
           color: Colors.green,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Text(slot?.id ??''),
+        child: Text(slot.slotNumber.toString()),
       ),
-      title: Text('Bike ${slot?.bikeId ?? ''}'),
+      title: Text('Bike ${slot.bikeId ?? ''}'),
       trailing: Container(
         alignment: Alignment.center, 
         width: 40,

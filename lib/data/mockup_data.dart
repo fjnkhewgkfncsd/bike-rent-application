@@ -35,6 +35,7 @@ Map<String, dynamic> stations = {
     "longitude": 104.9382,
   },
 };
+
 Map<String, dynamic> slots = {
   "1": {"isOccupied": true, "bikeId": "001"},
   "2": {"isOccupied": true, "bikeId": "002"},
