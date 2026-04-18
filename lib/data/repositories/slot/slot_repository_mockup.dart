@@ -10,12 +10,12 @@ class SlotRepositoryMockup extends SlotRepository {
   final List<Slot> _slots = slots.entries.map((entry) => SlotDto.fromJson(entry.key, entry.value)).toList();
 
   @override
-  Stream<List<Slot>> watchAvailableSlots() async*{
+  Stream<List<Slot>> watchAvailableSlots(String stationId) async*{
     yield List.unmodifiable(_slots);
     yield* _controller.stream;
   }
-
-    void updateSlotStatus(String slotId,String? bikeId, bool isOccupied) {
+  @override
+  Future<void> updateSlotStatus(String slotId,String? bikeId, bool isOccupied) async {
     for (var slot in _slots) {
       if (slot.id == slotId) {
         final updatedSlot = slot.copyWith(isOccupied: isOccupied, bikeId: bikeId);
