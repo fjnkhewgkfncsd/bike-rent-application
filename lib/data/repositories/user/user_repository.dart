@@ -5,7 +5,7 @@ abstract class UserRepository {
 
   Future<void> updateUserPass({
     required String userId,
-    required String passStatus,
+    required bool passStatus,
     required String? passType,
     required DateTime? passExpiryDate,
   });
