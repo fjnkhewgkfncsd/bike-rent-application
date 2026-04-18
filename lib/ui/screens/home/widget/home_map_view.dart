@@ -1,20 +1,19 @@
 // ui/screens/home/widgets/home_map_view.dart
+import 'package:bike_rental/ui/utils/async_value.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../view_model/home_model.dart';
-import '../../station_detail/station_detail_screen.dart'; // Import the detail screen
-import '../../../../domain/model/station/station_model.dart';
+import '../../station/station_screen.dart'; // Import the detail screen
+import '../../../../domain/model/station/station.dart';
 import '../../../theme/theme.dart';
 
 class HomeMapView extends StatelessWidget {
-  final HomeModel homeModel;
 
-  const HomeMapView({super.key, required this.homeModel});
+  const HomeMapView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (homeModel.isLoading) {
-      return const Center(child: CircularProgressIndicator());
-    }
+    final homeModel = context.watch<HomeViewModel>();
 
     return Stack(
       children: [
@@ -101,7 +100,7 @@ class HomeMapView extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => StationDetailScreen(station: station),
+        builder: (context) => StationScreen(station: station),
       ),
     );
   }
