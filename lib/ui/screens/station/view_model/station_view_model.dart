@@ -49,7 +49,6 @@ class StationViewModel extends ChangeNotifier{
       (slots) {
         _state = AsyncValue.success(slots);
         notifyListeners();
-        // print('hi');
       },
       onError: (error) {
         _state = AsyncValue.error(error);
