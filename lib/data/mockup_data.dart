@@ -82,7 +82,7 @@ Map<String, dynamic> users =
     "001": {
       "email": "user@example.com",
       "username": "kimheng",
-      "pass_status": "active",
+      "isPassActive": true,
       "pass_type": "monthly",
       "pass_expiry_date": DateTime.now().add(Duration(days: 30)),
     }
