@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/theme.dart';
 
 class GenericButton extends StatelessWidget {
   final String text;
@@ -17,15 +18,15 @@ class GenericButton extends StatelessWidget {
         icon: Icon(icon),
         label: Text(text),
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF1E5BDA),
-          foregroundColor: Colors.white,
+          backgroundColor: AppColors.lighblue,
+          foregroundColor: AppColors.background,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppBorder.bi),
           ),
           textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontSize: AppFont.md,
+            fontWeight: AppFontWeight.medium,
           ),
         ),
       ),

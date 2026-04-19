@@ -95,7 +95,7 @@ class PassDetailsScreen extends StatelessWidget {
                 horizontal: AppSpacing.lg,
               ),
               decoration: BoxDecoration(
-                color: AppColors.topnaviblue,
+                color: AppColors.lighblue,
                 borderRadius: BorderRadius.circular(AppBorder.lg),
                 boxShadow: [
                   BoxShadow(
@@ -222,7 +222,7 @@ class PassDetailsScreen extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.topnaviblue,
+                backgroundColor: AppColors.lighblue,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppBorder.bi),

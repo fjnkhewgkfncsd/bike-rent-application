@@ -94,7 +94,7 @@ class PassesContent extends StatelessWidget {
   Widget buildMyPassTile(Pass pass, bool isActive) {
     return Container(
       decoration: BoxDecoration(
-        color: isActive ? AppColors.topnaviblue : AppColors.background,
+        color: isActive ? AppColors.lighblue : AppColors.background,
         borderRadius: BorderRadius.circular(AppBorder.md),
         border: isActive
             ? null
@@ -283,6 +283,7 @@ class PassesContent extends StatelessWidget {
               final pass = passes[index];
               return GenericListTile(
                 title: getDisplayTitle(pass.passtype),
+                addPadding: true,
                 trailing: Text(
                   '\$${pass.price.toStringAsFixed(2)}',
                   style: TextStyle(
@@ -291,7 +292,7 @@ class PassesContent extends StatelessWidget {
                     fontSize: AppFont.l,
                   ),
                 ),
-                backgroundColor: AppColors.topnaviblue,
+                backgroundColor: AppColors.lighblue,
                 titleColor: Colors.white,
                 onTap: () => toPassDetails(context, pass),
               );

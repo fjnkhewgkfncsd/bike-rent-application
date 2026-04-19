@@ -52,7 +52,7 @@ class PaymentBottomSheet extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black54, 
+      barrierColor: AppColors.backgroundModalSheet, 
       builder: (context) {
         return const SuccessDialog(message: "Your booking is confirmed!", buttonText: "Done");
       },
@@ -63,7 +63,7 @@ class PaymentBottomSheet extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black54, 
+      barrierColor: AppColors.backgroundModalSheet, 
       builder: (context) {
         return const SuccessDialog(message: "Your booking has failed!", buttonText: "Try Again");
       },
@@ -75,62 +75,62 @@ class PaymentBottomSheet extends StatelessWidget {
     return Container(
       height: 430,
       decoration: const BoxDecoration(
-        color: Color(0xFFF5F5F5),
+        color: AppColors.background,
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(24),
+          top: Radius.circular(AppBorder.lg),
         ),
       ),
       child: Column(
         children: [
-          const SizedBox(height: 10),
+          const SizedBox(height: AppSpacing.bi),
 
           // drag handle
           Container(
             width: 36,
             height: 4,
             decoration: BoxDecoration(
-              color: Colors.grey.shade400,
-              borderRadius: BorderRadius.circular(12),
+              color: AppColors.dragHandle,
+              borderRadius: BorderRadius.circular(AppBorder.bi),
             ),
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.bi),
 
           // title row
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Payment',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontSize: AppFont.md,
+                    fontWeight: AppFontWeight.medium,
                   ),
                 ),
                 InkWell(
                   onTap: () => Navigator.pop(context),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(AppBorder.l),
                   child: const Padding(
                     padding: EdgeInsets.all(4),
-                    child: Icon(Icons.close, size: 22),
+                    child: Icon(Icons.close, size: AppFont.xxl),
                   ),
                 ),
               ],
             ),
           ),
 
-          const SizedBox(height: 4),
+          const SizedBox(height: AppSpacing.xs),
 
           Divider(
             height: 1,
             thickness: 1,
-            color: Colors.grey.shade300,
+            color: AppColors.divider,
           ),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.l,vertical: AppSpacing.xl),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,17 +138,13 @@ class PaymentBottomSheet extends StatelessWidget {
                 GenericListTile(
                   title: "No Pass Active", 
                   subtitle: "You dont have an active pass. Choose an option below.", 
-                  leading: Icon(Icons.warning, color: Colors.red), 
-                  borderColor: const Color.fromARGB(255, 251, 61, 61), 
-                  backgroundColor: const Color.fromARGB(255, 237, 159, 159)
+                  leading: Icon(Icons.warning, color: AppColors.error), 
+                  borderColor: AppColors.errorBorder, 
+                  backgroundColor: AppColors.errorBackground
                 ),
-                Divider(
-                  height: 32,
-                  thickness: 1,
-                  color: Colors.grey.shade300,
-                ),
+                SizedBox(height: AppSpacing.bi),
                 Text('Options'),
-                SizedBox(height:16),
+                SizedBox(height: AppSpacing.bi),
                 GenericListTile(
                   title: "Get a Pass", 
                   subtitle: "unlimited rides and best prices", 
@@ -157,39 +153,39 @@ class PaymentBottomSheet extends StatelessWidget {
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 61, 165, 251),
-                      borderRadius: BorderRadius.circular(20),
+                      color: AppColors.extraLightBlue,
+                      borderRadius: BorderRadius.circular(AppBorder.l),
                     ),
-                    child: const Icon(Icons.credit_card, color: Colors.white),
+                    child: const Icon(Icons.credit_card, color: AppColors.background),
                   ), 
-                  borderColor: const Color.fromARGB(255, 61, 165, 251), 
-                  backgroundColor: const Color.fromARGB(255, 127, 190, 241) ,
+                  borderColor: AppColors.extraLightBlue, 
+                  backgroundColor: AppColors.passBackground,
                   isTrailing: true,
                   onTap: () => toPassScreen(context),
                 ),
-                SizedBox(height: 8,),
+                SizedBox(height: AppSpacing.sm),
                 Row(
                   children: [
                     Expanded(
                       child: SizedBox(
-                        child: Container(color: const Color.fromARGB(255, 177, 177, 177),
+                        child: Container(color: AppColors.divider,
                         height: 1,
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: AppSpacing.bi),
                     Text('Or'),
-                    SizedBox(width: 10),
+                    SizedBox(width: AppSpacing.bi),
                     Expanded(
                       child: SizedBox(
-                        child: Container(color: const Color.fromARGB(255, 177, 177, 177),
+                        child: Container(color: AppColors.divider,
                         height: 1,
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height:8),
+                SizedBox(height: AppSpacing.sm),
                 GenericButton(text: 'Buy Single Ride - 0.50',icon: Icons.airplane_ticket, onPressed: () => onBooking(context))
               ]
             ),

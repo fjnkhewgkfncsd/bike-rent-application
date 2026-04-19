@@ -1,4 +1,4 @@
-
+import '../theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class GenericListTile extends StatelessWidget {
@@ -11,14 +11,16 @@ class GenericListTile extends StatelessWidget {
   final Color backgroundColor; 
   final Color? titleColor;
   final VoidCallback? onTap;
+  final bool? addPadding;
 
   const GenericListTile({
+    this.addPadding,
     super.key,
     required this.title,
     this.subtitle,
     this.leading,
     this.borderColor,
-    this.titleColor = Colors.black,
+    this.titleColor = AppColors.textPrimary,
     required this.backgroundColor,
     this.isTrailing = false,
     this.trailing,
@@ -34,13 +36,14 @@ class GenericListTile extends StatelessWidget {
           color: borderColor!,
           width: 2,
         ) : null,
-        borderRadius: BorderRadius.circular(12), 
+        borderRadius: BorderRadius.circular(AppSpacing.bi), 
       ),
       child: ListTile(
+        contentPadding: addPadding == true ? const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.md) : null,
         leading : leading,
         title: Text(title, style: TextStyle(color: titleColor)),
         subtitle: subtitle != null ? Text(subtitle!) : null,
-        trailing: trailing ?? (isTrailing == true ? Icon(Icons.arrow_forward_ios, size: 16) : null),
+        trailing: trailing ?? (isTrailing == true ? Icon(Icons.arrow_forward_ios, size: AppFont.md) : null),
         onTap: onTap,
       )
     );

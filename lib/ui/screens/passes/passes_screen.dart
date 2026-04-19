@@ -4,6 +4,7 @@ import 'package:bike_rental/ui/screens/passes/widgets/passes_content.dart';
 import 'package:bike_rental/ui/state/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../theme/theme.dart';
 
 class PassesScreen extends StatelessWidget {
   const PassesScreen({super.key});
@@ -36,7 +37,7 @@ class PassesScreen extends StatelessWidget {
                 ? const SizedBox()
                 : SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(AppSpacing.md),
                       child: SizedBox(
                         height: 55,
                         width: double.infinity,
@@ -47,9 +48,9 @@ class PassesScreen extends StatelessWidget {
                           icon: const Icon(Icons.close),
                           label: const Text('Cancel Plan'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF2D63C8),
+                            backgroundColor: AppColors.lighblue,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(AppBorder.bi),
                             ),
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:bike_rental/ui/widgets/generic_button.dart';
 import 'package:flutter/material.dart';
+import '../theme/theme.dart';
 
 class SuccessDialog extends StatelessWidget {
   final String message;
@@ -10,12 +11,12 @@ class SuccessDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 24),
+      insetPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         decoration: BoxDecoration(
-          color: const Color(0xFFF5F5F5),
-          borderRadius: BorderRadius.circular(20),
+          color: AppColors.background,
+          borderRadius: BorderRadius.circular(AppBorder.l),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -24,11 +25,11 @@ class SuccessDialog extends StatelessWidget {
               message,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+                fontSize: AppFont.md,
+                fontWeight: AppFontWeight.medium,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppSpacing.l),
             GenericButton(text: buttonText, 
             icon: null, 
             onPressed: () {

@@ -20,7 +20,7 @@ class StationContent extends StatelessWidget {
             horizontal: AppSpacing.md, 
           ),
           decoration: BoxDecoration(
-            color: AppColors.lightdeepblue,
+            color: AppColors.lighblue,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
