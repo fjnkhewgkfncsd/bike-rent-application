@@ -9,7 +9,6 @@ import 'data/repositories/slot/slot_repository.dart';
 import 'data/repositories/station/station_repository.dart';
 import 'data/repositories/user/user_repository.dart';
 import 'data/repositories/user/user_repository_mockup.dart';
-import 'data/repositories/station/station_repository_mockup.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import './main_common.dart';

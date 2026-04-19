@@ -9,6 +9,7 @@ class PassesContent extends StatelessWidget {
   final PassesViewModel passesVM;
   const PassesContent({super.key,required this.passesVM});
 
+
   void onClickSubscription(Pass pass){
     DateTime now = DateTime.now() ;
     passesVM.userSubscriptPass(pass.passtype,now.add(Duration(days: 30)) );

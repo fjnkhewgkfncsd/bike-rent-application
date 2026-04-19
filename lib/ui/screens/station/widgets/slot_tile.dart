@@ -31,7 +31,7 @@ class SlotListTile extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: AppSpacing.md,
-              vertical: AppSpacing.sm,
+              vertical: AppSpacing.md,
             ),
             child: Row(
               children: [
@@ -44,7 +44,7 @@ class SlotListTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(AppBorder.bi),
                   ),
                   child: Text(
-                    '${slot?.id ?? ''}',
+                    slot.slotNumber.toString(),
                     style: TextStyle(
                       color: AppColors.info,
                       fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class SlotListTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Bike #${slot?.bikeId ?? ''}',
+                        'Bike #${slot.bikeId}',
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: AppFont.md,

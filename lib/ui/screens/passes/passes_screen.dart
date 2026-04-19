@@ -31,7 +31,7 @@ class PassesScreen extends StatelessWidget {
                         : 'Choose a Pass',
               ),
             ),
-            body: PassesContent(passesVM: vm),
+            body: PassesContent(passesVM: vm, ),
             bottomNavigationBar: (user == null || !user.isPassActive)
                 ? const SizedBox()
                 : SafeArea(
