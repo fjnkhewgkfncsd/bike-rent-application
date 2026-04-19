@@ -23,7 +23,7 @@ class UserState extends ChangeNotifier{
     }
   }
 
-  void updateUser(String passType, DateTime expiryDate, bool isActive) {
+  void updateUser(String passType, DateTime? expiryDate, bool isActive) {
   final currentUser = _state.data;
   if (currentUser == null) return;
 
@@ -40,7 +40,7 @@ class UserState extends ChangeNotifier{
   void updateUserPassInFirebase({
     required bool passStatus,
     required String passType,
-    required DateTime passExpiryDate
+    required DateTime? passExpiryDate
   }) async {
     await userRepository.updateUserPass(
       userId: _state.data!.id,
