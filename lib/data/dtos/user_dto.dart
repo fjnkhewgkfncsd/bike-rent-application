@@ -13,7 +13,7 @@ class UserDto{
     assert(json[usernameKey] is String);
     assert(json[passStatusKey] is bool);
     assert(json[passTypeKey] == null || json[passTypeKey] is String);
-    assert(json[passExpiryDateKey] == null || json[passExpiryDateKey] is DateTime);
+    assert(json[passExpiryDateKey] == null || json[passExpiryDateKey] is String);
 
     return User(
       id: id,
@@ -21,7 +21,7 @@ class UserDto{
       username: json[usernameKey],
       isPassActive: json[passStatusKey],
       passType: json[passTypeKey],
-      passExpiryDate: json[passExpiryDateKey] 
+      passExpiryDate: json[passExpiryDateKey] != null ? DateTime.parse(json[passExpiryDateKey]) : null
     );
   }
 }
