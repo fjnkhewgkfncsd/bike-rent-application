@@ -36,7 +36,6 @@ class StationFirebaseRepository extends StationRepository {
     @override
     Future<void> updateStationAvailableBikeCount(String stationId, int newCount) async {
       try {
-        print(newCount);
         final DatabaseReference stationRef = _firebaseDatabase.ref('stations/$stationId');
         await stationRef.update({'availableBike': newCount});
       } catch (e) {
