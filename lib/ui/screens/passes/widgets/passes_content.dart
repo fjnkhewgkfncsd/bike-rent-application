@@ -8,11 +8,8 @@ import '../../../utils/async_value.dart';
 
 class PassesContent extends StatelessWidget {
   final PassesViewModel passesVM;
+  const PassesContent({super.key,required this.passesVM});
 
-  const PassesContent({
-    super.key,
-    required this.passesVM,
-  });
 
   void onClickSubscription(Pass pass) {
     final now = DateTime.now();

@@ -5,21 +5,23 @@ import 'package:bike_rental/ui/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 
 class BookingBottomSheet extends StatelessWidget {
+  final String stationId;
   final String bikeName;
-  final String slotNumber;
+  final String slotId;
   final StationViewModel stationViewModel;
 
   const BookingBottomSheet({
     super.key,
     required this.bikeName,
-    required this.slotNumber,
+    required this.slotId,
+    required this.stationId,
     required this.stationViewModel,
   });
 
   void onBooking(BuildContext context) async {
     final navigator = Navigator.of(context);
     if (stationViewModel.isUserPassActive) {
-      final isSuccess = await stationViewModel.bookBike(slotNumber,bikeName);
+      final isSuccess = await stationViewModel.bookBike(stationId,slotId,bikeName, false);
       if(isSuccess) {
         navigator.pop();
         if(!navigator.mounted) return;
@@ -32,11 +34,11 @@ class BookingBottomSheet extends StatelessWidget {
     }else{
       navigator.pop();
       if(!navigator.mounted) return;
-      showPaymentSheet(context, bikeName, slotNumber);
+      showPaymentSheet(context, bikeName, slotId);
     }
   }
 
-  void showPaymentSheet(BuildContext context, String bikeName, String slotNumber) {
+  void showPaymentSheet(BuildContext context, String bikeName, String slotId) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
@@ -44,8 +46,9 @@ class BookingBottomSheet extends StatelessWidget {
       isScrollControlled: true,
       builder: (context) {
         return PaymentBottomSheet(
+          stationId: stationId,
           bikeName: bikeName,
-          slotNumber: slotNumber,
+          slotId: slotId,
           stationViewModel: stationViewModel,
         );
       },

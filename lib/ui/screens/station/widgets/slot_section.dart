@@ -17,7 +17,7 @@ class SlotSection extends StatelessWidget {
 
     Widget content ;
 
-    void showBookingSheet(BuildContext context,String bikeId,String slotNumber) {
+    void showBookingSheet(BuildContext context,String bikeId,String slotId,String stationId) {
       showModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
@@ -26,8 +26,9 @@ class SlotSection extends StatelessWidget {
         builder: (context) {
           return BookingBottomSheet(
             bikeName: bikeId,
-            slotNumber: slotNumber,
+            slotId: slotId,
             stationViewModel: stationViewModel,
+            stationId: stationId,
           );
         },
       );
@@ -70,8 +71,8 @@ class SlotSection extends StatelessWidget {
                     itemCount: stationViewModel.availableBikesNumber,
                     itemBuilder: (context, index) {
                       return SlotListTile(
-                        slot: stationViewModel.availableBikes?[index],
-                        onTap: () => showBookingSheet(context, stationViewModel.availableBikes?[index].bikeId ?? '', stationViewModel.availableBikes?[index].id ?? ''),
+                        slot: stationViewModel.availableBikes![index],
+                        onTap: () => showBookingSheet(context, stationViewModel.availableBikes![index].bikeId ?? '', stationViewModel.availableBikes![index].id, stationViewModel.stationId),
                       );
                     },
                   ),

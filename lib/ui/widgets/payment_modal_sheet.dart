@@ -7,35 +7,44 @@ import 'package:flutter/material.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
     final String bikeName;
-  final String slotNumber;
+  final String slotId;
   final StationViewModel stationViewModel;
+  final String stationId;
 
   const PaymentBottomSheet({
     super.key,
     required this.stationViewModel,
     required this.bikeName,
-    required this.slotNumber,
+    required this.stationId,
+    required this.slotId,
   });
 
   void onBooking(BuildContext context) async {
-    final navigator = Navigator.of(context);
-    final isSuccess = await stationViewModel.bookBike(slotNumber,bikeName);
-    if(isSuccess) {
-      navigator.pop();
-      if(!navigator.mounted) return;
+    final isSuccess = await stationViewModel.bookBike(
+      stationId,
+      slotId,
+      bikeName,
+      false,
+    );
+
+    if (!context.mounted) return;
+
+    Navigator.pop(context); 
+
+    if (!context.mounted) return;
+
+    if (isSuccess) {
       showSuccessDialog(context);
-    }else {
-      if(!navigator.mounted) return;
-      navigator.pop();
-      showfailedDialog(context);  
+    } else {
+      showfailedDialog(context);
     }
   }
 
   void toPassScreen(BuildContext context) {
+    Navigator.pop(context);
     Navigator.push(context,
-    MaterialPageRoute(builder: (context) => PassesScreen())
+    MaterialPageRoute(builder: (_) => PassesScreen())
     );
-    
   }
 
   void showSuccessDialog(BuildContext context) {
