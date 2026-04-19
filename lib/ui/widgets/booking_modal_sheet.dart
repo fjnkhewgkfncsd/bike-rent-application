@@ -1,4 +1,5 @@
 import 'package:bike_rental/ui/screens/station/view_model/station_view_model.dart';
+import 'package:bike_rental/ui/theme/theme.dart';
 import 'package:bike_rental/ui/widgets/generic_button.dart';
 import 'package:bike_rental/ui/widgets/payment_modal_sheet.dart';
 import 'package:bike_rental/ui/widgets/dialog.dart';
@@ -42,7 +43,7 @@ class BookingBottomSheet extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      barrierColor: Colors.black54, 
+      barrierColor: AppColors.backgroundModalSheet, 
       isScrollControlled: true,
       builder: (context) {
         return PaymentBottomSheet(
@@ -60,7 +61,7 @@ class BookingBottomSheet extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black54, 
+      barrierColor: AppColors.backgroundModalSheet, 
       builder: (context) {
         return const SuccessDialog(message: "Your booking is confirmed!", buttonText: "Done");
       },
@@ -71,7 +72,7 @@ class BookingBottomSheet extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black54, 
+      barrierColor: AppColors.backgroundModalSheet, 
       builder: (context) {
         return const SuccessDialog(message: "Your booking has failed!", buttonText: "Try Again");
       },
@@ -83,86 +84,85 @@ class BookingBottomSheet extends StatelessWidget {
     return Container(
       height: 430,
       decoration: const BoxDecoration(
-        color: Color(0xFFF5F5F5),
+        color: AppColors.background,
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(24),
+          top: Radius.circular(AppBorder.lg),
         ),
       ),
       child: Column(
         children: [
-          const SizedBox(height: 10),
+          const SizedBox(height: AppSpacing.bi),
           // drag handle
           Container(
             width: 36,
             height: 4,
             decoration: BoxDecoration(
-              color: Colors.grey.shade400,
-              borderRadius: BorderRadius.circular(12),
+              color: AppColors.dragHandle,
+              borderRadius: BorderRadius.circular(AppBorder.bi),
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.bi),
           // title row
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Confirm Booking',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontSize: AppFont.xMd,
+                    fontWeight: AppFontWeight.medium,
                   ),
                 ),
                 InkWell(
                   onTap: () => Navigator.pop(context),
-                  borderRadius: BorderRadius.circular(20),
                   child: const Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Icon(Icons.close, size: 22),
+                    padding: EdgeInsets.all(AppSpacing.xs),
+                    child: Icon(Icons.close, size: AppFont.xxl),
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Divider(
             height: 1,
             thickness: 1,
-            color: Colors.grey.shade300,
+            color: AppColors.divider,
           ),
           Expanded(
             child: Center(
               child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 14),
+                margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 26,
+                  horizontal: AppSpacing.lg,
+                  vertical: AppSpacing.lg,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F1F1),
-                  borderRadius: BorderRadius.circular(18),
+                  color: AppColors.insideMessageBackground,
+                  borderRadius: BorderRadius.circular(AppBorder.md),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      bikeName,
+                      "Bike - #$bikeName",
                       style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
+                        fontSize: AppFont.xMd,
+                        fontWeight: AppFontWeight.semiBold,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: AppSpacing.sm),
                     const Text(
                       'Do you want to book this bike?',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
+                        fontSize: AppFont.md,
+                        color: AppColors.modalSheetMessage,
                       ),
                     ),
-                    const SizedBox(height: 22),
+                    const SizedBox(height: AppSpacing.lg),
                     GenericButton(text: "Booking",icon:Icons.airplane_ticket_outlined, onPressed: () => onBooking(context))
                   ],
                 ),

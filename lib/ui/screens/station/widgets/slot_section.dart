@@ -2,7 +2,7 @@ import 'package:bike_rental/domain/model/slot/slot.dart';
 import 'package:bike_rental/ui/screens/station/view_model/station_view_model.dart';
 import 'package:bike_rental/ui/screens/station/widgets/slot_tile.dart';
 import 'package:bike_rental/ui/utils/async_value.dart';
-import 'package:bike_rental/ui/widgets/booking_model_sheet.dart';
+import 'package:bike_rental/ui/widgets/booking_modal_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

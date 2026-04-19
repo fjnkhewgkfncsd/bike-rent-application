@@ -18,11 +18,17 @@ class AppColors {
   static const Color textMuted = Color(0xFF888888);
   static const Color lightdeepblue = Color.fromARGB(255, 2, 19, 255);
   static const Color topnaviblue = Color.fromARGB(255, 40, 51, 196);
+  static const Color backgroundModalSheet = Colors.black54;
+  static const Color modalSheetMessage = Colors.black87;
+  static Color dragHandle = Colors.grey.shade400;
+  static Color divider = Colors.grey.shade300;
+  static const Color insideMessageBackground = Color.fromARGB(255, 238, 238, 238);
 }
 
 class AppSpacing{
   static const double xs = 4.0;
   static const double sm = 8.0;
+  static const double bi = 10.0;
   static const double md = 16.0;
   static const double lg = 24.0;
   static const double xl = 32.0;
@@ -44,9 +50,23 @@ class AppFont{
   static const double bi = 12.0;
   static const double big = 14.0;
   static const double md = 16.0;
+  static const double xMd = 18.0;
   static const double l = 20.0;
+  static const double xxl = 22.0;
   static const double lg = 24.0;
   static const double xl = 32.0;
+}
+
+class AppFontWeight{
+  static const FontWeight thin = FontWeight.w100;
+  static const FontWeight extraLight = FontWeight.w200;
+  static const FontWeight light = FontWeight.w300;
+  static const FontWeight regular = FontWeight.w400;
+  static const FontWeight medium = FontWeight.w500;
+  static const FontWeight semiBold = FontWeight.w600;
+  static const FontWeight bold = FontWeight.w700;
+  static const FontWeight extraBold = FontWeight.w800;
+  static const FontWeight black = FontWeight.w900;
 }
 
 class AppTheme {

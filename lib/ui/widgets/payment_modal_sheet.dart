@@ -4,6 +4,7 @@ import 'package:bike_rental/ui/widgets/generic_button.dart';
 import 'package:bike_rental/ui/widgets/dialog.dart';
 import 'package:bike_rental/ui/widgets/generic_tile.dart';
 import 'package:flutter/material.dart';
+import '../theme/theme.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
     final String bikeName;
